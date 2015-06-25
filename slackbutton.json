@@ -1,0 +1,11 @@
+{
+	"event": "slackbutton",
+	"url": "https://hooks.slack.com/services/(fill in your secret stuff here)",
+	"requestType": "POST",
+	"json": {
+		"username": "slackbutton",
+		"icon_emoji": ":sparkle:",
+		"text": "{{SPARK_EVENT_VALUE}}"
+	},
+	"mydevices": "true"
+}
