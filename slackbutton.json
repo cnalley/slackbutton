@@ -5,7 +5,8 @@
 	"json": {
 		"username": "slackbutton",
 		"icon_emoji": ":sparkle:",
-		"text": "{{SPARK_EVENT_VALUE}}"
+		"text": "{{PARTICLE_EVENT_VALUE}}"
 	},
-	"mydevices": "true"
+	"mydevices": "true",
+    	"deviceID":  "place device id here"
 }
