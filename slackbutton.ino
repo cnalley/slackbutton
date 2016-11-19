@@ -22,7 +22,7 @@ void setup() {
   pinMode(button,INPUT_PULLDOWN);
   pinMode(onboardLed,OUTPUT);
 
-  Spark.subscribe("hook-response/slackbutton", gotData, MY_DEVICES);
+  Particle.subscribe("hook-response/slackbutton", gotData, MY_DEVICES);
 
   for( int i=0; i<5; i++) {
     digitalWrite(onboardLed,HIGH);
@@ -49,10 +49,10 @@ void loop() {
     // handle debounce
     buttonPressedAt = millis();
     while( digitalRead(button) == HIGH && millis() - buttonPressedAt < debounceTime) {
-      Spark.process(); // essentially, do nothing
+      Particle.process(); // essentially, do nothing
     }
     buttonUp = FALSE;
-    Spark.publish("slackbutton", "I am a button bot!", 60, PRIVATE);
+    Particle.publish("slackbutton", "I am a button bot!", 60, PRIVATE);
     digitalWrite(onboardLed,HIGH);
     delay(500);
     digitalWrite(onboardLed,LOW);
@@ -63,12 +63,12 @@ void loop() {
 
   // Call home each minute
   if (millis() - lastHeartbeat > ONE_MINUTE_MILLIS) {
-    Spark.publish("spark/device/name");
+    Particle.publish("particle/device/name");
     lastHeartbeat = millis();
   }
   // Synchronize the clock Daily
   if (millis() - lastSync > ONE_DAY_MILLIS) {
-    Spark.syncTime();
+    Particle.syncTime();
     lastSync = millis();
   }
 }
