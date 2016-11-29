@@ -52,7 +52,7 @@ void loop() {
       Particle.process(); // essentially, do nothing
     }
     buttonUp = FALSE;
-    Particle.publish("slackbutton", "I am a button bot!", 60, PRIVATE);
+    Particle.publish("slackbutton", "kubot pug bomb", 60, PRIVATE);
     digitalWrite(onboardLed,HIGH);
     delay(500);
     digitalWrite(onboardLed,LOW);
